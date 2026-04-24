@@ -14,6 +14,7 @@ Responsive portfolio website to showcase my DevOps projects and skills.
 git clone https://github.com/yourusername/portfolio-website.git
 cd portfolio-website
 docker-compose up -d --build
+```
 
 Features
 Dark/light theme toggle
