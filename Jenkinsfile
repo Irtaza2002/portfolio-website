@@ -39,8 +39,8 @@ pipeline{
     post{
         success{
             script{
-                email to : 'iratzajaved31@gmail.com',
-                from : 'irtazajaved31@gmail.com',
+                emailtext from : 'iratzajaved31@gmail.com',
+                to : 'irtazajaved31@gmail.com',
                 subject : 'pipeline successfull',
                 body : 'CI/CD pipeline successfully executed'
             }
