@@ -36,14 +36,27 @@ pipeline{
             }
         }
     }
-    post{
-        success{
-            script{
-                emailext from : 'iratzajaved31@gmail.com',
-                to : 'irtazajaved31@gmail.com',
-                subject : 'pipeline successfull',
-                body : 'CI/CD pipeline successfully executed'
-            }
-        }
+    post {
+    success {
+        emailext(
+            to: 'irtazajaved31@gmail.com',
+            subject: "Build Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            body: """
+Build succeeded.
+
+Job: ${env.JOB_NAME}
+Build Number: ${env.BUILD_NUMBER}
+URL: ${env.BUILD_URL}
+"""
+        )
     }
+
+    failure {
+        emailext(
+            to: 'irtazajaved31@gmail.com',
+            subject: "Build Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            body: "Check Jenkins console output."
+        )
+    }
+}
 }
