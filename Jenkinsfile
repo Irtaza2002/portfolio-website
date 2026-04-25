@@ -36,4 +36,14 @@ pipeline{
             }
         }
     }
+    post{
+        success{
+            script{
+                emailtext from : "iratzajaved31@gmail.com",
+                to : "irtazajaved31@gmail.com",
+                subject : "pipeline successfull",
+                body : "CI/CD pipeline successfully executed"
+            }
+        }
+    }
 }
